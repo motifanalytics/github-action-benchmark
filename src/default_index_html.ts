@@ -173,6 +173,9 @@ export const DEFAULT_INDEX_HTML = String.raw`<!DOCTYPE html>
           function renderGraph(parent, name, dataset) {
             const canvas = document.createElement('canvas');
             canvas.className = 'benchmark-chart';
+            const heading = document.createElement('h3');
+            heading.textContent = name;
+            parent.appendChild(heading);
             parent.appendChild(canvas);
 
             const color = toolColors[dataset.length > 0 ? dataset[0].tool : '_'];
