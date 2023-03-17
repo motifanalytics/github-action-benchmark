@@ -578,7 +578,7 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
 
             return [
                 {
-                    data: bench.name,
+                    data: `[${bench.name}](${config.ghPagesURL+"#"+slugify(bench.name)})`,
                 },
                 {
                     data: strVal(bench),
@@ -594,7 +594,7 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
 
         return [
             {
-                data: bench.name,
+                data: `[${bench.name}](${config.ghPagesURL+slugify(bench.name)})`,
             },
             {
                 data: strVal(bench),
@@ -613,3 +613,13 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
         .addTable([headers, ...rows])
         .write();
 }
+
+function slugify(text: string): string {
+    // replace non-alphanumeric characters with hyphens
+    text = text.replace(/\W+/g, '-');
+    // remove leading and trailing hyphens
+    text = text.replace(/^-+/, '').replace(/-+$/, '');
+    // convert to lowercase
+    text = text.toLowerCase();
+    return text;
+  }

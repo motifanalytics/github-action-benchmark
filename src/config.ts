@@ -9,6 +9,7 @@ export interface Config {
     tool: ToolType;
     outputFilePath: string;
     ghPagesBranch: string;
+    ghPagesURL: string | undefined;
     ghRepository: string | undefined;
     benchmarkDataDirPath: string;
     githubToken: string | undefined;
@@ -222,6 +223,7 @@ export async function configFromJobInput(): Promise<Config> {
     const tool: string = core.getInput('tool');
     let outputFilePath: string = core.getInput('output-file-path');
     const ghPagesBranch: string = core.getInput('gh-pages-branch');
+    const ghPagesURL: string = core.getInput('gh-pages-url');
     const ghRepository: string = core.getInput('gh-repository');
     let benchmarkDataDirPath: string = core.getInput('benchmark-data-dir-path');
     const name: string = core.getInput('name');
@@ -269,6 +271,7 @@ export async function configFromJobInput(): Promise<Config> {
         tool,
         outputFilePath,
         ghPagesBranch,
+        ghPagesURL,
         ghRepository,
         benchmarkDataDirPath,
         githubToken,
