@@ -20,6 +20,9 @@ inputs:
     description: 'Branch for gh-pages'
     required: true
     default: 'gh-pages'
+  gh-pages-url:
+    description: 'URL for gh-pages to deeplink from summaries'
+    required: false
   gh-repository:
     description: 'Url to an optional different repository to store benchmark results'
     required: false
