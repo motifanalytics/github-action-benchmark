@@ -477,7 +477,7 @@ async function writeSummary(bench, config) {
                 : bench.value / previousBench.value;
             return [
                 {
-                    data: `<a href="${config.ghPagesURL}"#"${slugify(bench.name)}">${bench.name}</a>`,
+                    data: `<a href="${config.ghPagesURL}#${slugify(bench.name)}">${bench.name}</a>`,
                 },
                 {
                     data: strVal(bench),
@@ -492,7 +492,7 @@ async function writeSummary(bench, config) {
         }
         return [
             {
-                data: `<a href="${config.ghPagesURL}"#"${slugify(bench.name)}">${bench.name}</a>`,
+                data: `<a href="${config.ghPagesURL}#${slugify(bench.name)}">${bench.name}</a>`,
             },
             {
                 data: strVal(bench),
