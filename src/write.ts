@@ -578,7 +578,7 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
 
             return [
                 {
-                    data: `<a href="${config.ghPagesURL}"#"${slugify(bench.name)}">${bench.name}</a>`,
+                    data: `<a href="${config.ghPagesURL}#${slugify(bench.name)}">${bench.name}</a>`,
                 },
                 {
                     data: strVal(bench),
@@ -594,7 +594,7 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
 
         return [
             {
-                data: `<a href="${config.ghPagesURL}"#"${slugify(bench.name)}">${bench.name}</a>`,
+                data: `<a href="${config.ghPagesURL}#${slugify(bench.name)}">${bench.name}</a>`,
             },
             {
                 data: strVal(bench),
