@@ -198,6 +198,7 @@ async function configFromJobInput() {
     const tool = core.getInput('tool');
     let outputFilePath = core.getInput('output-file-path');
     const ghPagesBranch = core.getInput('gh-pages-branch');
+    const ghPagesURL = core.getInput('gh-pages-url');
     const ghRepository = core.getInput('gh-repository');
     let benchmarkDataDirPath = core.getInput('benchmark-data-dir-path');
     const name = core.getInput('name');
@@ -243,6 +244,7 @@ async function configFromJobInput() {
         tool,
         outputFilePath,
         ghPagesBranch,
+        ghPagesURL,
         ghRepository,
         benchmarkDataDirPath,
         githubToken,

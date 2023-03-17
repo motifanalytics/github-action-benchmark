@@ -477,7 +477,7 @@ async function writeSummary(bench, config) {
                 : bench.value / previousBench.value;
             return [
                 {
-                    data: bench.name,
+                    data: `<a href="${config.ghPagesURL}"#"${slugify(bench.name)}">${bench.name}</a>`,
                 },
                 {
                     data: strVal(bench),
@@ -492,7 +492,7 @@ async function writeSummary(bench, config) {
         }
         return [
             {
-                data: bench.name,
+                data: `<a href="${config.ghPagesURL}"#"${slugify(bench.name)}">${bench.name}</a>`,
             },
             {
                 data: strVal(bench),
@@ -511,4 +511,13 @@ async function writeSummary(bench, config) {
         .write();
 }
 exports.writeSummary = writeSummary;
+function slugify(text) {
+    // replace non-alphanumeric characters with hyphens
+    text = text.replace(/\W+/g, '-');
+    // remove leading and trailing hyphens
+    text = text.replace(/^-+/, '').replace(/-+$/, '');
+    // convert to lowercase
+    text = text.toLowerCase();
+    return text;
+}
 //# sourceMappingURL=write.js.map

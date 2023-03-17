@@ -263,6 +263,7 @@ exports.DEFAULT_INDEX_HTML = String.raw `<!DOCTYPE html>
             const nameElem = document.createElement('h1');
             nameElem.className = 'benchmark-title';
             nameElem.textContent = name;
+            nameElem.id = slugify(name);
             setElem.appendChild(nameElem);
 
             const graphsElem = document.createElement('div');
@@ -273,6 +274,18 @@ exports.DEFAULT_INDEX_HTML = String.raw `<!DOCTYPE html>
               renderGraph(graphsElem, benchName, benches)
             }
           }
+
+          // TODO: DRY this up
+          function slugify(text) {
+            // replace non-alphanumeric characters with hyphens
+            text = text.replace(/\W+/g, '-');
+            // remove leading and trailing hyphens
+            text = text.replace(/^-+/, '').replace(/-+$/, '');
+            // convert to lowercase
+            text = text.toLowerCase();
+            return text;
+          }
+
 
           const main = document.getElementById('main');
           for (const {name, dataSet} of dataSets) {
