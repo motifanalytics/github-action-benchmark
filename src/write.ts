@@ -578,7 +578,7 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
 
             return [
                 {
-                    data: `[${bench.name}](${config.ghPagesURL+"#"+slugify(bench.name)})`,
+                    data: `[${bench.name}](${config.ghPagesURL}"#"${slugify(bench.name)})`,
                 },
                 {
                     data: strVal(bench),
@@ -594,7 +594,7 @@ export async function writeSummary(bench: Benchmark, config: Config): Promise<vo
 
         return [
             {
-                data: `[${bench.name}](${config.ghPagesURL+slugify(bench.name)})`,
+                data: `[${bench.name}](${config.ghPagesURL}"#"${slugify(bench.name)})`,
             },
             {
                 data: strVal(bench),
@@ -622,4 +622,4 @@ function slugify(text: string): string {
     // convert to lowercase
     text = text.toLowerCase();
     return text;
-  }
+}
