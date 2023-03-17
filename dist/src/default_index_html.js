@@ -178,6 +178,7 @@ exports.DEFAULT_INDEX_HTML = String.raw `<!DOCTYPE html>
             canvas.className = 'benchmark-chart';
             const heading = document.createElement('h3');
             heading.textContent = name;
+            heading.id = slugify(name);
             parent.appendChild(heading);
             parent.appendChild(canvas);
 
